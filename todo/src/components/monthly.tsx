@@ -1,24 +1,37 @@
-import React from "react";
-import { useNavigate } from "react-router-dom"; // 추가
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 interface MonthlyProps {
-  month: { id: number, name: string }; // 월을 id와 name으로 받음
+  month: { id: number, name: string };
 }
 
 const Monthly: React.FC<MonthlyProps> = ({ month }) => {
-  const navigate = useNavigate(); // 네비게이션 훅 사용
+  const navigate = useNavigate();
+  const [totalTasks, setTotalTasks] = useState(0);
+  const [completedTasks, setCompletedTasks] = useState(0);
+
+  useEffect(() => {
+    const savedTodos = localStorage.getItem(`todos-${month.id}`);
+    if (savedTodos) {
+      const todos = JSON.parse(savedTodos);
+      setTotalTasks(todos.length);
+      setCompletedTasks(todos.filter((todo: any) => todo.completed).length);
+    }
+  }, [month.id]);
 
   return (
     <div className="month-card">
-      <div style={{ fontFamily:'hanb',textAlign: "left", fontSize: '22px', fontWeight: "bolder",marginBottom:"0.8vh" }}>{month.name}</div>
-      <div style={{ textAlign: "left" }}>
-      <div style={{ lineHeight: '1.3' }}>Report</div>
-       <div style={{ lineHeight: '1' }}>Goal completions 0/2</div>
+      <div style={{ fontFamily: 'hanb', textAlign: "left", fontSize: '22px', fontWeight: "bolder", marginBottom: "0.8vh" }}>
+        {month.name}
       </div>
-      <div style={{ width: '18vw', borderRadius: '50px', display: 'flex', justifyContent: 'center',paddingRight:'1vw',paddingTop:'0.5vh' }}>
-        <button 
+      <div style={{ textAlign: "left" }}>
+        <div style={{ lineHeight: '1.3' }}>Report</div>
+        <div style={{ lineHeight: '1' }}>Goal completions {completedTasks}/{totalTasks}</div>
+      </div>
+      <div style={{ width: '18vw', borderRadius: '50px', display: 'flex', justifyContent: 'center', paddingRight: '1vw', paddingTop: '0.5vh' }}>
+        <button
           style={{ backgroundColor: '#C5DEDA', width: '15vw', marginTop: '1vh' }}
-          onClick={() => navigate(`/month/${month.id}`)} // 클릭 시 이동 (id로 이동)
+          onClick={() => navigate(`/month/${month.id}`)}
         >
           plus your list!
         </button>
