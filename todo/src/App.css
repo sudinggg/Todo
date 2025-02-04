@@ -57,3 +57,49 @@ input {
   border-radius: 5px;
   flex-direction: column;
 }
+
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.popup {
+  background: white;
+  padding: 1vw;
+  border-radius: 10px;
+  width: 40vw;
+  height: 79vh;
+  text-align: center;
+}
+.popup-month {
+  font-size: 22.5px; 
+  padding-top:0.3vh;
+}
+.popup ul {
+  list-style: none;
+}
+.popup li {
+  font-size: 19px;
+  margin: 0.1vw; /* 간격 줄임 */
+  padding: 0.1vw; /* 간격 줄임 */
+}
+.list-container {
+  flex: 1;
+  overflow-y: auto; 
+  background-color: #E9E9E9;
+  height: 63vh;
+  margin: 2vw;
+  border-radius: 10px;
+  padding: 1vw;
+}
+
+::-webkit-scrollbar {
+  width: 8px; /* 스크롤바 너비 */
+}
+
