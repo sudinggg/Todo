@@ -27,21 +27,32 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearchResults }) => {
             return { month: month.name, tasks: filteredTodos.map((todo: any) => todo.text) };
           }
         }
-        return null; 
-      }).filter((result) => result !== null); 
+        return null;
+      }).filter((result) => result !== null);
 
       onSearchResults(results as { month: string; tasks: string[] }[]); // 타입 단언
+      setSearch("");  
     }
   };
 
   return (
-    <div >
-    <input style={{ width: '45vw', height: '4.vh', borderRadius: '50px', backgroundColor: "#C5DEDA", padding: "10px" }}
-type="text" placeholder="Search..."
-      value={search}
-      onChange={(e) => setSearch(e.target.value)}
-      onKeyDown={handleSearch}
-    /> </div>
+    <div>
+      <input
+        style={{
+          color: 'black', 
+          width: '45vw', 
+          height: '5.5vh', 
+          borderRadius: '50px', 
+          backgroundColor: "#C5DEDA", 
+          padding: "1.3vw", fontSize:'17px'
+        }}
+        type="text" 
+        placeholder="Search..."
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+        onKeyDown={handleSearch}
+      />
+    </div>
   );
 };
 

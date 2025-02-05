@@ -7,6 +7,7 @@ import SearchResultsPopup from "./components/SearchResultsPopup";
 import "./App.css";
 
 function App() {
+  
   const [searchResults, setSearchResults] = useState<{ month: string; tasks: string[] }[]>([]);
   const [isPopupOpen, setIsPopupOpen] = useState(false);
 
@@ -20,13 +21,11 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={
-          <div className="app">
-<div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop:"1vh" }}>
-<div style={{ fontFamily:'hanb',fontSize: '50px', paddingRight: '3vw' }}>Todo_List</div>
-<div>☀️</div>
-            </div>
+          <div className="app"> 
+          <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop:"1.5vh" }}>
+            <div style={{ fontFamily:'hanb',fontSize: '50px', paddingRight: '3vw' }}>Todo_List </div>            </div>
               
-            <div>  <SearchBar onSearchResults={handleSearchResults} />  </div>
+            <div >  <SearchBar onSearchResults={handleSearchResults} />  </div>
             <div>  <MonthlyList /> </div>
 
             {isPopupOpen && (
