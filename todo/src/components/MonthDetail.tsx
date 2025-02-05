@@ -14,10 +14,8 @@ const MonthDetail: React.FC = () => {
   const navigate = useNavigate();
   const listRef = useRef<HTMLDivElement>(null);
   const monthId = Number(id);
-
   const storedTodos = localStorage.getItem(`todos-${monthId}`);
   const initialTodos: Todo[] = storedTodos ? JSON.parse(storedTodos) : [];
-
   const [todos, setTodos] = useState<Todo[]>(initialTodos);
   const [inputValue, setInputValue] = useState("");
 
@@ -62,56 +60,28 @@ const MonthDetail: React.FC = () => {
       <div style={{ fontFamily: 'hanb', fontSize: '55px' }}>{month}</div>
       <div className="gray-box" style={{ margin: '1.5vw' }}>
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0 10px', height: '50px' }}>
-<div>
+          <div>
   <button
-    style={{ position: 'absolute',
-      top:'18.6vh',      left: '31vw',
-      fontSize: '20px',
-      cursor: 'defualt',
-      background: 'none',
-      border: 'none',
-      color: 'black'
-    }}
-    onClick={() => navigate(-1)}
-  >
-    <IoIosArrowRoundBack />
-  </button></div>
-  <div style={{ fontSize: '22px', textAlign: 'center' }}>Daily to do list</div>
-</div>
-        <input
-          style={{ width: '35vw', height: '5vh', borderRadius: '50px', backgroundColor: "#C5DEDA", padding: "1.2vw",color:'black',fontSize:'17px'
-          }}
-          type="text"
-          placeholder="Add something to do!"
-          value={inputValue}
-          onChange={(e) => setInputValue(e.target.value)}
-          onKeyDown={addTodo}
-        />
+    style={{ position: 'absolute',top:'18.6vh',left: '31vw',fontSize: '20px',cursor: 'defualt',background: 'none',border: 'none',color: 'black'}}
+    onClick={() => navigate(-1)}>
+    <IoIosArrowRoundBack /> </button></div>
+  <div style={{ fontSize: '22px', textAlign: 'center' }}>Daily to do list</div> </div>
+        <input style={{ width: '35vw', height: '5vh', borderRadius: '50px', backgroundColor: "#C5DEDA", padding: "1.2vw",color:'black',fontSize:'17px'}}
+          type="text" placeholder="Add something to do!" value={inputValue}
+          onChange={(e) => setInputValue(e.target.value)} onKeyDown={addTodo}/>
         <div ref={listRef} style={{ height: '60vh', width: '35vw', backgroundColor: 'white', overflowY: 'auto', padding: '10px' }}>
           {todos.map((todo) => (
-            <div key={todo.id} style={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'space-between',
-              padding: '0.5vw',
-              borderBottom: '1px solid #ddd'
-            }}>
+            <div key={todo.id} style={{ display: 'flex',alignItems: 'center', justifyContent: 'space-between',padding: '0.5vw', borderBottom: '1px solid #ddd'    }}>
               <span
-                style={{
-                  textDecoration: todo.completed ? "line-through" : "none",
-                  flexGrow: 1,
-                  cursor: 'default'
-                }}
+                style={{ textDecoration: todo.completed ? "line-through" : "none", flexGrow: 1, cursor: 'default'}}
                 onClick={() => toggleComplete(todo.id)}
               >
                 {todo.text}
               </span>
               <button onClick={() => toggleComplete(todo.id)} style={{ marginLeft: "1vw", cursor:'default', background: "none", border: "none" }}>
-                <FaCheck color={todo.completed ? "green" : "gray"} />
-              </button>
+                <FaCheck color={todo.completed ? "green" : "gray"} /> </button>
               <button onClick={() => removeTodo(todo.id)} style={{ cursor: 'default', background: "none", border: "none" }}>
-                <FaTrash color="red" />
-              </button>
+                <FaTrash color="red" /> </button>
             </div>
           ))}
         </div>

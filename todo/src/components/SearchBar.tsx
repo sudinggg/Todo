@@ -37,21 +37,8 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearchResults }) => {
 
   return (
     <div>
-      <input
-        style={{
-          color: 'black', 
-          width: '45vw', 
-          height: '5.5vh', 
-          borderRadius: '50px', 
-          backgroundColor: "#C5DEDA", 
-          padding: "1.3vw", fontSize:'17px'
-        }}
-        type="text" 
-        placeholder="Search..."
-        value={search}
-        onChange={(e) => setSearch(e.target.value)}
-        onKeyDown={handleSearch}
-      />
+      <input style={{  color: 'black', width: '45vw', height: '5.5vh', borderRadius: '50px', backgroundColor: "#C5DEDA", padding: "1.3vw", fontSize:'17px'}}
+        type="text"  placeholder="Search..." value={search} onChange={(e) => setSearch(e.target.value)} onKeyDown={handleSearch}/>
     </div>
   );
 };
