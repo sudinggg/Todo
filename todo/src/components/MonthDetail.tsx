@@ -97,7 +97,7 @@ const MonthDetail: React.FC = () => {
                 style={{
                   textDecoration: todo.completed ? "line-through" : "none",
                   flexGrow: 1,
-                  cursor: "pointer"
+                  cursor: 'default'
                 }}
                 onClick={() => toggleComplete(todo.id)}
               >
@@ -105,12 +105,12 @@ const MonthDetail: React.FC = () => {
               </span>
 
               {/* 완료 버튼 */}
-              <button onClick={() => toggleComplete(todo.id)} style={{ marginLeft: "10px", cursor: "pointer", background: "none", border: "none" }}>
+              <button onClick={() => toggleComplete(todo.id)} style={{ marginLeft: "10px", cursor:'default', background: "none", border: "none" }}>
                 <FaCheck color={todo.completed ? "green" : "gray"} />
               </button>
 
               {/* 삭제 버튼 */}
-              <button onClick={() => removeTodo(todo.id)} style={{ marginLeft: "10px", cursor: "pointer", background: "none", border: "none" }}>
+              <button onClick={() => removeTodo(todo.id)} style={{ marginLeft: "10px", cursor: 'default', background: "none", border: "none" }}>
                 <FaTrash color="red" />
               </button>
             </div>
