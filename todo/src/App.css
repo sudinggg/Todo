@@ -89,3 +89,15 @@ input {
   width: 8px; /* 스크롤바 너비 */
 }
 
+.close-button {
+  background: none;
+  border: none;
+  font-size: 21px;
+  color: black;
+}
+
+.close-button:focus,
+.close-button:active {
+  outline: none;
+  border: none;
+}

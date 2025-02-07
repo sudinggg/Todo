@@ -61,7 +61,7 @@ const MonthDetail: React.FC = () => {
       <div className="gray-box" style={{ margin: '1.5vw' }}>
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0 10px', height: '50px' }}>
           <div>
-  <button
+  <button className="close-button"
     style={{ position: 'absolute',top:'18.6vh',left: '31vw',fontSize: '20px',cursor: 'defualt',background: 'none',border: 'none',color: 'black'}}
     onClick={() => navigate(-1)}>
     <IoIosArrowRoundBack /> </button></div>
@@ -78,7 +78,7 @@ const MonthDetail: React.FC = () => {
               >
                 {todo.text}
               </span>
-              <button onClick={() => toggleComplete(todo.id)} style={{ marginLeft: "1vw", cursor:'default', background: "none", border: "none" }}>
+              <button  onClick={() => toggleComplete(todo.id)} style={{ marginLeft: "1vw", cursor:'default', background: "none", border: "none" }}>
                 <FaCheck color={todo.completed ? "green" : "gray"} /> </button>
               <button onClick={() => removeTodo(todo.id)} style={{ cursor: 'default', background: "none", border: "none" }}>
                 <FaTrash color="red" /> </button>

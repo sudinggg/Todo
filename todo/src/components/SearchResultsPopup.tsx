@@ -9,7 +9,7 @@ interface SearchResultsPopupProps {
         <div className="popup" style={{backgroundColor:'#C5DEDA'}}>
        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: "1vh", width: '100%' }}>
   <div style={{paddingLeft:'5vw', fontFamily:'hanb',fontSize: '25px', margin: '0 auto' ,height:'3vh'}}>Search_Results</div>
-  <div><button style={{ color:'black',fontSize:'21px',background: "none",border: "none",height:'1vh'}} onClick={onClose}>x</button></div>
+<div><button  className="close-button" style={{ color:'black',fontSize:'21px',background: "none",border: "none",height:'1vh', outline: "none" }} onClick={onClose}>x</button></div>
 </div>
 <div className="list-container">
           {results.length > 0 ? (

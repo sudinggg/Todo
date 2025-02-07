@@ -26,11 +26,16 @@ const Monthly: React.FC<MonthlyProps> = ({ month }) => {
       </div>
       <div style={{ textAlign: "left" }}>
         <div style={{ lineHeight: '1.3' }}>Report</div>
-        <div style={{ lineHeight: '1' }}>Goal completions {completedTasks}/{totalTasks}</div>
+        <div style={{ lineHeight: '1' }}>
+          <span style={{ color: 'green' }}>
+            Goal completions {completedTasks}/{totalTasks}
+          </span>
+       
+        </div>
       </div>
       <div style={{ width: '18vw', borderRadius: '50px', display: 'flex', justifyContent: 'center', paddingRight: '1vw', paddingTop: '0.5vh' }}>
-        <button
-          style={{ backgroundColor: '#C5DEDA', width: '15vw', marginTop: '1vh' }}
+        <button 
+          style={{ backgroundColor: '#C5DEDA', width: '15vw', height: '5.5vh', marginTop: '1vh' }}
           onClick={() => navigate(`/month/${month.id}`)}
         >
           plus your list!
