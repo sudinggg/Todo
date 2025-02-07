@@ -73,8 +73,8 @@ input {
 }
 .popup li {
   font-size: 19px;
-  margin: 0.1vw; /* 간격 줄임 */
-  padding: 0.1vw; /* 간격 줄임 */
+  margin: 0.1vw; 
+  padding: 0.1vw; 
 }
 .list-container {
   flex: 1;
@@ -86,7 +86,7 @@ input {
   padding: 1vw;
 }
 ::-webkit-scrollbar {
-  width: 8px; /* 스크롤바 너비 */
+  width: 8px;
 }
 
 .close-button {
